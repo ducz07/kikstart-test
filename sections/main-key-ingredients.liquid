@@ -1,0 +1,97 @@
+{{ 'section-key-ingredients.css' | asset_url | stylesheet_tag }}
+
+<div class="key-ingredients__container">
+    <div class="key-ingredients__title">
+        <h1>Key Ingredients</h1>
+    </div>
+    <div class="key-ingredients__content">
+        {% for block in section.blocks %}
+            <div class="key-ingredients__list">
+                <div class="key-ingredients__image">
+                    <img src="{{ block.settings.image | img_url: '100x' }}">
+                </div>
+                <div class="key-ingredients__name">
+                    <h2>{{ block.settings.name }}</h2>
+                </div>
+                <div class="key-ingredients__description">
+                    <p>{{ block.settings.brief_description }}</p>
+                </div>
+                <div class="key-ingredients__link">
+                    <a href="#link-{{ forloop.index0 }}" id="js-link-{{ forloop.index0 }}">Learn More</a>
+                </div>
+            </div>
+            
+            <div class="modals">
+                <dialog class="dialog" id="link-{{ forloop.index0 }}">
+                    <div class="dialog__wrapper">
+                        <button class="dialog__close">✕</button>
+                        <div class="image-name-content">
+                            <div class="key-ingredients__image">
+                                <img src="{{ block.settings.image | img_url: '100x' }}">
+                            </div>
+                            <div class="name-other-info">
+                                <div class="key-ingredients__name">
+                                    <h2>{{ block.settings.name }}</h2>
+                                </div>
+                                <div class="other-info">
+                                    <p>{{ block.settings.other_info }}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="key-ingredients__description">
+                            <p>{{ block.settings.main_description }}</p>
+                        </div>
+                    </div>
+                </dialog>
+            </div>
+        {% endfor %}
+    </div>
+</div> 
+
+<script src="{{ 'section-key-ingredients.js' | asset_url }}" defer="defer"></script>
+
+{% schema %}
+
+{
+    "name": "t:sections.key_ingredients.name",
+    "blocks": [
+        {
+            "type": "lists",
+            "name": "t:sections.key_ingredients.blocks.list.name",
+            "settings": [
+                {
+                    "type": "image_picker",
+                    "id": "image",
+                    "label": "Image"
+                },
+                {
+                    "type": "text",
+                    "id": "name",
+                    "label": "Name"
+                },
+                {
+                    "type": "richtext",
+                    "id": "brief_description",
+                    "label": "Brief Desription"
+                },
+                {
+                    "type": "richtext",
+                    "id": "main_description",
+                    "label": "Main Desription"
+                },
+                {
+                    "type": "richtext",
+                    "id": "other_info",
+                    "label": "Other Info"
+                }
+            ]
+        }
+    ],
+    "presets": [
+    {
+      "name": "t:sections.key_ingredients.presets.name"
+    }
+  ]
+}
+
+{% endschema %}

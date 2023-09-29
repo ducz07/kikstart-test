@@ -1,0 +1,100 @@
+.key-ingredients__title {
+    text-align: center;
+}
+
+.key-ingredients__image img {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+}
+
+.key-ingredients__content {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+@media screen and (max-width: 768px) {
+    .key-ingredients__content {
+        flex-wrap: wrap;
+    }
+}
+
+.key-ingredients__list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.key-ingredients__name h2 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.key-ingredients__description {
+    text-align: center;
+    font-size: 12px;
+}
+
+.other-info p {
+    font-size: 13px;
+}
+
+.dialog{
+    padding: 20px;
+    border: 0;
+    background: transparent;
+    overflow: hidden;
+}
+
+.dialog::backdrop {
+    background-color: rgba(0, 0, 0, .3);
+    backdrop-filter: blur(4px);
+}
+
+.dialog__wrapper {
+    padding:20px;
+    background: #fff;
+    border-radius: 4px;
+    box-shadow: 0 4px 10px rgba(0,0,0,.3);
+    width: 40%;
+    margin: 0 auto;
+    position: relative;
+}
+
+@media screen and (max-width: 768px) {
+    .dialog__wrapper {
+        width: auto;
+    }
+}
+
+.dialog__close {
+    position: absolute;
+    top: 0;
+    right: 2%;
+}
+
+.image-name-content {
+    display: flex;
+    gap: 50px;
+}
+
+@media screen and (max-width: 768px) {
+    .image-name-content {
+        gap: 30px;
+    }
+}
+
+button, input[type="submit"], input[type="reset"] {
+	background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+}
+
